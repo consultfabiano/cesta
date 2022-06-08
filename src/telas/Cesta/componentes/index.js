@@ -5,10 +5,10 @@ import Texto from "../../../componentes/Texto";
 import Detalhes from "./Detalhes";
 import Topo from "./Topo";
 
-export default function Cesta() {
+export default function Cesta({ topo, detalhes }) {
     return <>
-        <Topo />
-        <Detalhes />
+        <Topo {...topo}/>
+        <Detalhes {...detalhes} />
         <View style={estilos.cesta}>
 
         </View>
