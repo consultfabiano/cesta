@@ -1,7 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, View } from 'react-native';
+//import * as SplashScreen from 'expo-splash-screen'; buscar saber como implementar
 
-import Texto from "../../../componentes/Texto";
+
 import Detalhes from "./Detalhes";
 import Topo from "./Topo";
 
@@ -24,6 +25,9 @@ const estilos = StyleSheet.create({
     },
 
 });
+
+
+
 
 
 
