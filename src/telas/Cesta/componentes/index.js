@@ -1,31 +1,45 @@
 import React from "react";
-import { Image, StyleSheet, View } from 'react-native';
-//import * as SplashScreen from 'expo-splash-screen'; buscar saber como implementar
+import { FlatList, StyleSheet, View } from 'react-native';
 
+import Texto from "../../../componentes/Texto";
 
 import Detalhes from "./Detalhes";
+import Item from "./Item";
 import Topo from "./Topo";
 
-export default function Cesta({ topo, detalhes }) {
+export default function Cesta({ topo, detalhes, itens }) {
     return <>
-        <Topo {...topo}/>
-        <Detalhes {...detalhes} />
-        <View style={estilos.cesta}>
+      <FlatList
+        data={itens.lista}
+        renderItem={Item}
+        keyExtractor={({ nome }) => nome }
+        ListHeaderComponent={() => {
+          return <>
+            <Topo {...topo} />
+            <View style={estilos.cesta}>
+              <Detalhes {...detalhes} />
+              <Texto style={estilos.titulo}>{ itens.titulo }</Texto>
+            </View>
+          </>
+        }}
+      />
+    </>
+  }
 
-        </View>
-        </>
-}
-
-const estilos = StyleSheet.create({
-   
-
-    cesta: {
-        paddingVertical: 8,
-        paddingHorizontal: 16,
+  const estilos = StyleSheet.create({
+    titulo: {
+      color: "#464646",
+      fontWeight: "bold",
+      marginTop: 32,
+      marginBottom: 8,
+      fontSize: 20,
+      lineHeight: 32,
     },
-
-});
-
+    cesta: {
+      paddingVertical: 8,
+      paddingHorizontal: 16,
+    },
+  });
 
 
 
